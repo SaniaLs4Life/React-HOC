@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export const Input = styled.input`
@@ -63,13 +62,26 @@ export const CustomList = styled.div`
 `;
 
 export const DeleteButton = styled.span`
-    padding: 3px;
-    border:1px solid red;
-    color: red;
-    border-radius:3px;
-    font: 11px Arial;
-    float: left;
+  padding: 4px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 3px;
+  font: 10px Arial;
+  float: left;
+  &:hover {
+    background: red;
+    color: #fff;
+  }
+`;
 
+export const EmptyData = styled.div`
+  margin: auto;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 25px;
 `;
 export default {
   Input,
@@ -78,5 +90,6 @@ export default {
   CustomButton,
   Wrapper,
   CustomList,
-  DeleteButton
+  DeleteButton,
+  EmptyData
 };

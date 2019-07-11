@@ -7,7 +7,8 @@ import {
   CustomHeader,
   Input,
   Button,
-  DeleteButton
+  DeleteButton,
+  EmptyData
 } from "./CustomComponents";
 
 const suggestions = [
@@ -61,7 +62,7 @@ export class List extends Component {
             );
           })
         ) : (
-          <div>No Data</div>
+          <EmptyData>No Data</EmptyData>
         )}
         {this.props.isEdit && (
           <>
