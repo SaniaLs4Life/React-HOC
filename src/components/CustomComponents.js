@@ -35,7 +35,7 @@ border: 1px solid #069;
 width: 50px;
 text-align:center;
 padding: 5px;
-border-radius: 3px
+border-radius: 3px;
 cursor: pointer;
 float: right;
 &:hover {
@@ -55,6 +55,7 @@ export const CustomList = styled.div`
   text-align: center;
   margin: auto;
   cursor: pointer;
+  margin-top: 25px;
   font-weight: bold;
   &:nth-child(odd) {
     background-color: #eee;

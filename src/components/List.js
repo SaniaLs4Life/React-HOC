@@ -39,6 +39,7 @@ export class List extends Component {
     });
     return (
       <Wrapper>
+        <h1>List 1 Example</h1>
         <CustomHeader onClick={this.props.toggleMode}>
           {this.props.isEdit ? (
             <CustomButton>Save</CustomButton>
@@ -50,7 +51,7 @@ export class List extends Component {
           this.props.list.map((item, i) => {
             return (
               <>
-                <CustomList key={i} style={{ marginTop: "25px" }}>
+                <CustomList key={i}>
                   {this.props.isEdit ? (
                     <DeleteButton onClick={() => this.props.handleDelete(i)}>
                       X
