@@ -15,12 +15,8 @@ const HOC = props => WrappedComponent => {
     };
     handleAddItem = () => {
       if (this.state.newItem.trim() !== "") {
-        const newAddedItem = {
-          value: Math.random() * 10000,
-          name: this.state.newItem
-        };
         this.setState({
-          list: [newAddedItem, ...this.state.list]
+          list: [this.state.newItem, ...this.state.list]
         });
         this.clearField();
       }
