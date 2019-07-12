@@ -1,4 +1,5 @@
 import React from "react";
+import arrayMove from "array-move";
 
 const HOC = props => WrappedComponent => {
   return class extends React.Component {
@@ -40,6 +41,12 @@ const HOC = props => WrappedComponent => {
         newItem: ""
       });
     };
+
+    onSortEnd = ({ oldIndex, newIndex }) => {
+      this.setState(({ list }) => ({
+        list: arrayMove(list, oldIndex, newIndex)
+      }));
+    };
     render() {
       return (
         <WrappedComponent
@@ -50,6 +57,7 @@ const HOC = props => WrappedComponent => {
           handleAddItem={this.handleAddItem}
           handleChange={this.handleChange}
           toggleMode={this.toggleMode}
+          onSortEnd={this.onSortEnd}
         />
       );
     }
