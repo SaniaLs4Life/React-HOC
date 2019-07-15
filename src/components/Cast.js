@@ -14,10 +14,11 @@ import {
   SortableElement,
   SortableHandle
 } from "react-sortable-hoc";
+import AtlassianKitUI from "./AtlassianKitUI";
 
 const DragHandle = SortableHandle(() => (
   <img
-    style={{ float: "right", cursor: "pointer" }}
+    style={{ float: "right", cursor: "pointer", zIndex: 9999 }}
     width="20"
     height="20"
     src="https://cdn2.iconfinder.com/data/icons/4web-3/139/menu-256.png"
@@ -78,17 +79,20 @@ const Cast = props => {
         ))}
       </Sort>
       {isEdit && (
-        <Input
-          value={newItem}
-          onKeyPress={ev => {
-            if (ev.key === "Enter") {
-              ev.preventDefault();
-              handleAddItem();
-            }
-          }}
-          onChange={e => handleChange(e.target.value)}
-          placeholder="Add cast"
-        />
+        <React.Fragment>
+          <AtlassianKitUI />
+          <Input
+            value={newItem}
+            onKeyPress={ev => {
+              if (ev.key === "Enter") {
+                ev.preventDefault();
+                handleAddItem();
+              }
+            }}
+            onChange={e => handleChange(e.target.value)}
+            placeholder="Add cast"
+          />
+        </React.Fragment>
       )}
     </Container>
   );

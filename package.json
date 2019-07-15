@@ -3,14 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@atlaskit/field-text": "^9.0.2",
+    "@atlaskit/inline-edit": "^10.0.7",
+    "@atlaskit/select": "^10.0.0",
+    "@atlaskit/textfield": "^2.0.3",
+    "@atlaskit/theme": "^9.1.1",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "add": "^2.0.6",
     "array-move": "^2.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "react-sortable-hoc": "^1.9.1",
-    "styled-components": "^4.3.2"
+    "styled-components": "^4.3.2",
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",
