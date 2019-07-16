@@ -9,9 +9,6 @@ export const Container = styled.div`
   padding-right: 10px;
   border-radius: 3px;
   margin-top: 150px;
-  max-height: 400px;
-  overflow-y: scroll;
-  overflow-x: hidden;
 `;
 
 export const Header = styled.div`

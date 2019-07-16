@@ -1,55 +1,41 @@
-import React from "react";
-import { gridSize } from "@atlaskit/theme";
-import { AsyncCreatableSelect as AsyncCreatable } from "@atlaskit/select";
+import React, { useState, useEffect } from 'react';
+import { AsyncSelect } from '@atlaskit/select';
 
-export default class AtlassianKitUI extends React.Component {
-  state = {
-    editValue: "Field value",
-    allowCreateWhileLoading: false,
-    options: [{ label: "asd", value: "asd" }, { label: "123", value: "gggg" }],
-    opts: null
-  };
-
-  componentDidMount() {
-    fetch("http://www.json-generator.com/api/json/get/bUtxKljJua?indent=2")
+const AsyncExample = () => {
+  const fetchData = () => {
+    fetch('http://www.json-generator.com/api/json/get/cgnqtCXdIO?indent=2')
+      .then(res => res.json())
       .then(res => {
-        return res.json();
+        const newList = res.map(e => { return { label: e.company, value: e.company } })
+        setList(newList);
       })
-      .then(res => {
-        const newArrayList = res.map(e => {
-          return { label: e.name, value: e.company };
-        });
-        this.setState({ opts: newArrayList });
-      })
-      .catch(err => console.log(err));
   }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
 
   // you control how the options are filtered
-  filterOptions = inputValue => {
-    return this.state.opts.filter(option =>
-      option.label.toLowerCase().includes(inputValue.toLowerCase())
-    );
-  };
+  const filter = (inputValue) =>
+    list && list.filter(i => i.label.toLowerCase().includes(inputValue.toLowerCase()));
 
   // async load function using callback (promises also supported)
-  loadOptions = (inputValue, callback) => {
+  const loadOptions = (inputValue, callback) => {
     setTimeout(() => {
-      callback(this.filterOptions(inputValue));
+      callback(filter(inputValue));
     }, 1000);
   };
-
-  render() {
-    return (
-      <div
-        style={{
-          padding: `${gridSize()}px ${gridSize()}px ${gridSize() * 6}px`
-        }}
-      >
-        <AsyncCreatable
-          loadOptions={this.loadOptions}
-          placeholder="Add a cast"
-        />
-      </div>
-    );
-  }
+  const [list, setList] = useState(null);
+  return (
+    <AsyncSelect
+      className="async-select-with-callback"
+      classNamePrefix="react-select"
+      defaultOptions={list}
+      loadOptions={loadOptions}
+      options={list}
+      placeholder="Choose a City"
+    />
+  )
 }
+
+export default AsyncExample;
